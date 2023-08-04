@@ -9,9 +9,6 @@ import scala.collection.mutable
 object Utilities {
 
   def load_csv(path: String, schema: StructType)(implicit spark: SparkSession): DataFrame = {
-
-    //This reads the csv as a table of Strings and outs as a Java linked list
-    //hence has to be converted to Scala Buffer.
     def opencsv_entries(): mutable.Buffer[Array[String]] = {
       val reader = new CSVReader(new FileReader(path))
       val myEntries = reader.readAll()
